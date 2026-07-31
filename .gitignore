@@ -128,3 +128,31 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Model weights and exports
+*.pt
+*.pth
+*.onnx
+*.ckpt
+
+# Datasets and generated labels
+data/
+synth/
+labels.csv
+synth_labels.csv
+pseudo_labels.csv

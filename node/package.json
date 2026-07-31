@@ -1,0 +1,13 @@
+{
+  "name": "text-captcha-solver-node",
+  "version": "1.0.0",
+  "description": "Node.js inference for the text captcha CTC model (ONNX)",
+  "main": "solve.js",
+  "scripts": {
+    "start": "node solve.js"
+  },
+  "dependencies": {
+    "onnxruntime-node": "^1.19.0",
+    "sharp": "^0.33.5"
+  }
+}
