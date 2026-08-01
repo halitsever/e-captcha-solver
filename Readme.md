@@ -1,10 +1,10 @@
 <p align="center" class="logo-section">
 <img src="/.github/assets/logo.svg" height="80" width="80"/>
 </br>
-  <img src="https://halitsever-api.vercel.app/api/repo-title?title=Solver">
+  <img src="https://halitsever-api.vercel.app/api/repo-title?title=E-Captcha+Solver">
 
 <p align="center">
-E-captcha recognition with a CRNN (CNN + BiLSTM + CTC) ( ~95% accuracy)<br>
+E-captcha recognition with a CRNN (~95% accuracy)<br>
 <br/>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever"/>
