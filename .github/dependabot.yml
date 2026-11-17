@@ -19,6 +19,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    # The >= floors only set what users may install, so leave them unless a release falls outside.
+    versioning-strategy: increase-if-necessary
     # Gives the registry a week to pull compromised releases before they reach a PR.
     cooldown:
       default-days: 7
