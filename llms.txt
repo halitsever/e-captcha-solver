@@ -1,0 +1,20 @@
+# E-Captcha Solver
+
+> PyTorch CRNN-CTC OCR model that reads E-captcha text captchas (5 characters from the alphabet `abcdefghjkmnrstuvyz`) with about 95% accuracy. Inference runs in Python, over HTTP with FastAPI, or in Node.js through ONNX.
+
+Install with `pip install -r requirements.txt`. The repository ships no trained weights: put a `ctc_model.pt` in the project root, or train one with `train_ctc.py`, before calling `CaptchaSolver("ctc_model.pt").solve("captcha.jpg")`, which returns `(text, confidence)`.
+
+## Docs
+
+- [README](https://github.com/halitsever/e-captcha-solver/blob/main/Readme.md): model overview, install, CLI, Python, HTTP and Node usage, training
+- [infer.py](https://github.com/halitsever/e-captcha-solver/blob/main/infer.py): `CaptchaSolver` Python API
+- [model_ctc.py](https://github.com/halitsever/e-captcha-solver/blob/main/model_ctc.py): CRNN architecture, alphabet and preprocessing
+- [server.py](https://github.com/halitsever/e-captcha-solver/blob/main/server.py): FastAPI `/solve` endpoint
+- [node/solve.js](https://github.com/halitsever/e-captcha-solver/blob/main/node/solve.js): Node.js ONNX inference
+- [train_ctc.py](https://github.com/halitsever/e-captcha-solver/blob/main/train_ctc.py): training script
+- [AGENTS.md](https://github.com/halitsever/e-captcha-solver/blob/main/AGENTS.md): build, verify and gotchas for contributors
+
+## Optional
+
+- [Source](https://github.com/halitsever/e-captcha-solver): repository
+- [Colab notebook](https://github.com/halitsever/e-captcha-solver/blob/main/captcha_ctc_colab.ipynb): full training run on a Colab GPU

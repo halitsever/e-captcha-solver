@@ -1,13 +1,13 @@
 <p align="center" class="logo-section">
-<img src="/.github/assets/logo.svg" height="80" width="80"/>
+<img src="/.github/assets/logo.svg" height="80" width="80" alt="E-Captcha Solver logo"/>
 </br>
   <img src="https://halitsever-api.vercel.app/api/repo-title?title=E-Captcha+Solver">
 
 <p align="center">
-E-captcha recognition with a CRNN (~95% accuracy)<br>
+E-captcha solver: a PyTorch CRNN-CTC OCR model that reads E-captcha text captchas with ~95% accuracy, with Python, FastAPI and Node.js (ONNX) inference<br>
 <br/>
 <br/>
-<img src="https://img.shields.io/github/sponsors/halitsever"/>
+<img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>
 <p align="center">
 <a align="center" href="#">Documentation</a>
@@ -32,7 +32,7 @@ Example:
 </p>
 
 <p align="center" class="logo-section">
-<img src="/samples/sample_01_merbc.jpg" />
+<img src="/samples/sample_01_merbc.jpg" alt="Sample E-captcha image that the model reads as merbc" />
 </p>
 
 <p align="center">
@@ -99,6 +99,11 @@ python train_ctc.py --data data --labels labels.csv --epochs 400 --out ctc_model
 
 <p align="center" href="https://github.com/halitsever/e-captcha-solver/issues">
 <img src="https://halitsever-api.vercel.app/api/issue"/>
+</p>
+
+<p align="center">
+Found a bug or have an idea? Open an <a href="https://github.com/halitsever/e-captcha-solver/issues">issue</a>.<br/>
+Read the <a href=".github/CONTRIBUTING.md">contributing guide</a> before sending a pull request.
 </p>
 
 <p align="center">
