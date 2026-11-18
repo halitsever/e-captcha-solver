@@ -4,7 +4,7 @@
   <img src="https://halitsever-api.vercel.app/api/repo-title?title=E-Captcha+Solver">
 
 <p align="center">
-E-captcha solver: a PyTorch CRNN-CTC OCR model that reads E-captcha text captchas with ~95% accuracy, with Python, FastAPI and Node.js (ONNX) inference<br>
+E-captcha solver: a text captcha solver in Python. A PyTorch CRNN-CTC captcha OCR model reads E-captcha text captchas with ~95% accuracy, with Python, FastAPI and Node.js (ONNX) inference<br>
 <br/>
 <br/>
 <img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
@@ -50,6 +50,8 @@ cd e-captcha-solver
 pip install -r requirements.txt
 ```
 
+### Captcha solver in Python
+
 Put `ctc_model.pt` in the project root, then read an image:
 
 ```bash
@@ -67,7 +69,7 @@ text, conf = solver.solve("captcha.jpg")     # also takes a PIL image
 text, conf = solver.solve_bytes(response.content)
 ```
 
-Over HTTP:
+### Captcha OCR over HTTP
 
 ```bash
 pip install fastapi uvicorn python-multipart
@@ -75,6 +77,8 @@ uvicorn server:app --port 8000
 curl -F file=@captcha.jpg http://localhost:8000/solve
 # {"text":"hvnyf","conf":0.99}
 ```
+
+### Node.js with ONNX
 
 From Node, with no Python at runtime. Export the model once, then install and run:
 
@@ -88,6 +92,10 @@ node solve.js ../captcha.jpg ../ctc_model.onnx
 ```
 
 The ONNX session is built on the first call and reused after that, so a long run of images only pays that cost once.
+
+### Train the text captcha solver on your own images
+
+The model only knows the E-captcha alphabet and the five-character length, so it is not a general captcha solver. Other text captchas need their own training run, and a different alphabet or length also means changing the constants in `model_ctc.py`, `gen_synthetic.py` and `node/solve.js`. Challenge widgets such as reCAPTCHA or hCaptcha are out of scope.
 
 To train on your own captchas, put the images in `data/` and their labels in a `labels.csv` with `filename,label` columns:
 
