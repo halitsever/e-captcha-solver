@@ -1,6 +1,6 @@
 # E-Captcha Solver
 
-> PyTorch CRNN-CTC OCR model that reads E-captcha text captchas (5 characters from the alphabet `abcdefghjkmnrstuvyz`) with about 95% accuracy. Inference runs in Python, over HTTP with FastAPI, or in Node.js through ONNX.
+> Text captcha solver in Python: a PyTorch CRNN-CTC captcha OCR model that reads E-captcha text captchas (5 characters from the alphabet `abcdefghjkmnrstuvyz`) with about 95% accuracy. Inference runs in Python, over HTTP with FastAPI, or in Node.js through ONNX. It is not a general captcha solver: other text captchas need a new training run, and widgets such as reCAPTCHA are out of scope.
 
 Install with `pip install -r requirements.txt`. The repository ships no trained weights: put a `ctc_model.pt` in the project root, or train one with `train_ctc.py`, before calling `CaptchaSolver("ctc_model.pt").solve("captcha.jpg")`, which returns `(text, confidence)`.
 
