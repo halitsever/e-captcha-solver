@@ -20,12 +20,12 @@ E-captcha solver: a text captcha solver in Python. A PyTorch CRNN-CTC captcha OC
 
 
 
-- 🧠 Five convolutional blocks, a two-layer bidirectional LSTM with 256 hidden units, and a CTC head on top
-- 🔤 A fixed 19-letter alphabet (`abcdefghjkmnrstuvyz`) and five characters per image
-- 🖼️ Any input size works. Images are converted to 200x50 grayscale before they reach the model
-- 📊 Every prediction comes back with a confidence score, so you can retry the weak ones instead of failing
-- 🟢 A Node.js runtime over ONNX, for projects that do not want Python in production
-- 🌐 A FastAPI endpoint if you would rather call it over HTTP
+- Five convolutional blocks, a two-layer bidirectional LSTM with 256 hidden units, and a CTC head on top
+- A fixed 19-letter alphabet (`abcdefghjkmnrstuvyz`) and five characters per image
+- Any input size works. Images are converted to 200x50 grayscale before they reach the model
+- Every prediction comes back with a confidence score, so you can retry the weak ones instead of failing
+- A Node.js runtime over ONNX, for projects that do not want Python in production
+- A FastAPI endpoint if you would rather call it over HTTP
 
 <p align="center">
 Example:
