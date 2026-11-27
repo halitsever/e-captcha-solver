@@ -23,7 +23,7 @@ Checking real predictions needs a trained model (see below): `python solve_ctc.p
 
 ## Docs site
 
-The project website is a VitePress site in `docs/`, with its own `package.json` and lockfile. It deploys to https://halitsever.github.io/e-captcha-solver/ through `.github/workflows/docs.yml` on pushes to `main` that touch `docs/**`.
+The project website is a VitePress site in `docs/`, with its own `package.json` and lockfile. It deploys to https://projects.halit.org/e-captcha-solver/ through `.github/workflows/docs.yml` on pushes to `main` that touch `docs/**`.
 
 - Build it from `docs/`: `npm ci`, then `npm run build`. `npm run dev` serves it locally.
 - The theme is in `docs/.vitepress/theme/`. The home page is `Landing.vue`, and the figures are `SampleFigure.vue`, `ArchFigure.vue` and `CtcDecode.vue`.

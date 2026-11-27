@@ -10,7 +10,7 @@ E-captcha solver: a text captcha solver in Python. A PyTorch CRNN-CTC captcha OC
 <img src="https://img.shields.io/github/sponsors/halitsever" alt="GitHub Sponsors"/>
 </p>
 <p align="center">
-<a align="center" href="https://halitsever.github.io/e-captcha-solver/">Documentation</a>
+<a align="center" href="https://projects.halit.org/e-captcha-solver/">Documentation</a>
   </p>
 </p>
 
