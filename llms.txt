@@ -6,6 +6,7 @@ Install with `pip install -r requirements.txt`. The repository ships no trained 
 
 ## Docs
 
+- [Project website](https://halitsever.github.io/e-captcha-solver/): quick start and guides on the CRNN, CTC loss and decoding, training, ONNX export and the FastAPI server
 - [README](https://github.com/halitsever/e-captcha-solver/blob/main/Readme.md): model overview, install, CLI, Python, HTTP and Node usage, training
 - [infer.py](https://github.com/halitsever/e-captcha-solver/blob/main/infer.py): `CaptchaSolver` Python API
 - [model_ctc.py](https://github.com/halitsever/e-captcha-solver/blob/main/model_ctc.py): CRNN architecture, alphabet and preprocessing

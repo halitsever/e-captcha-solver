@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="E-captcha">
+  <defs>
+    <linearGradient id="rd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b3172a"/>
+      <stop offset="1" stop-color="#7d0f1d"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke="url(#rd)">
+    <circle cx="128" cy="128" r="118" stroke-width="5"/>
+    <circle cx="128" cy="128" r="106" stroke-width="2.5"/>
+  </g>
+
+  <text x="128" y="180" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="150" font-weight="700" fill="url(#rd)">E</text>
+</svg>

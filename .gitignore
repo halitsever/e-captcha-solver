@@ -156,3 +156,8 @@ synth/
 labels.csv
 synth_labels.csv
 pseudo_labels.csv
+
+# Docs site
+docs/node_modules
+docs/.vitepress/dist
+docs/.vitepress/cache
