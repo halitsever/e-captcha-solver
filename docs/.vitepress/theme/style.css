@@ -1,0 +1,303 @@
+/*
+ * A typeset technical report: white paper, black ink, Newsreader for prose,
+ * IBM Plex Mono for code and strings. The logo's crimson is the only accent.
+ */
+
+:root {
+  --ec-paper: #fcfcfa;
+  --ec-sheet: #ffffff;
+  --ec-wash: #f2f2ee;
+  --ec-ink: #16171a;
+  --ec-ink-2: #4d4f56;
+  --ec-ink-3: #74767d;
+  --ec-rule: #d6d6cf;
+  --ec-rule-strong: #16171a;
+  --ec-accent: #a01020;
+  --ec-accent-deep: #7d0f1d;
+  --ec-accent-wash: rgba(160, 16, 32, 0.07);
+
+  --ec-serif: 'Newsreader Variable', 'Iowan Old Style', Georgia, serif;
+  --ec-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --vp-font-family-base: var(--ec-serif);
+  --vp-font-family-mono: var(--ec-mono);
+
+  --vp-c-bg: var(--ec-paper);
+  --vp-c-bg-alt: var(--ec-paper);
+  --vp-c-bg-soft: var(--ec-wash);
+  --vp-c-bg-elv: var(--ec-sheet);
+  --vp-c-divider: var(--ec-rule);
+  --vp-c-border: var(--ec-rule);
+  --vp-c-gutter: var(--ec-rule);
+  --vp-c-text-1: var(--ec-ink);
+  --vp-c-text-2: var(--ec-ink-2);
+  --vp-c-text-3: var(--ec-ink-3);
+
+  --vp-c-brand-1: var(--ec-accent);
+  --vp-c-brand-2: var(--ec-accent-deep);
+  --vp-c-brand-3: var(--ec-accent);
+  --vp-c-brand-soft: var(--ec-accent-wash);
+
+  --vp-code-color: var(--ec-ink);
+  --vp-code-bg: var(--ec-wash);
+  --vp-code-block-bg: var(--ec-wash);
+  --vp-code-font-size: 0.82em;
+  --vp-code-block-color: var(--ec-ink);
+  --vp-code-copy-code-bg: var(--ec-sheet);
+  --vp-code-copy-code-hover-bg: var(--ec-sheet);
+
+  --vp-custom-block-info-bg: var(--ec-wash);
+  --vp-custom-block-tip-bg: var(--ec-wash);
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--ec-ink);
+  --vp-custom-block-warning-bg: var(--ec-accent-wash);
+  --vp-custom-block-warning-text: var(--ec-ink);
+  --vp-custom-block-warning-border: transparent;
+
+  --vp-nav-height: 60px;
+  --vp-sidebar-bg-color: var(--ec-paper);
+  --vp-nav-bg-color: var(--ec-paper);
+  --vp-local-search-bg: var(--ec-paper);
+  --vp-c-default-soft: var(--ec-wash);
+}
+
+html {
+  font-optical-sizing: auto;
+}
+
+body {
+  font-family: var(--ec-serif);
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: oldstyle-nums;
+}
+
+::selection {
+  background: var(--ec-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ec-accent);
+  outline-offset: 2px;
+}
+
+/* Nav: a running head with a rule under it. */
+.VPNavBar,
+.VPNavBar:not(.home.top) {
+  background-color: var(--ec-paper) !important;
+}
+.VPNavBar .divider-line,
+.VPNavBar.has-sidebar .divider-line {
+  background-color: var(--ec-rule) !important;
+}
+.VPNavBarTitle .title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  border-bottom-color: var(--ec-rule) !important;
+}
+.VPNavBarTitle .logo {
+  height: 28px;
+}
+.VPNavBarMenuLink,
+.VPNavScreenMenuLink {
+  font-size: 1rem !important;
+  font-weight: 450 !important;
+}
+.VPNavBarMenuLink.active {
+  color: var(--ec-accent) !important;
+}
+.VPLocalNav {
+  background: var(--ec-paper) !important;
+}
+.DocSearch-Button,
+.VPNavBarSearchButton {
+  font-family: var(--ec-serif);
+}
+
+/* Sidebar reads as a table of contents. */
+.VPSidebar {
+  border-right: 1px solid var(--ec-rule);
+}
+.VPSidebarItem.level-0 > .item > .text,
+.VPSidebarItem.level-0 .text {
+  font-size: 1rem;
+}
+.VPSidebarItem.level-0 > .item .text {
+  font-weight: 600;
+}
+.VPSidebarItem.level-1 .text {
+  font-weight: 400;
+}
+.VPSidebarItem.is-active > .item .text,
+.VPSidebarItem.level-1.is-active > .item > .link > .text {
+  color: var(--ec-accent) !important;
+}
+.VPDocAsideOutline .outline-title {
+  font-weight: 600;
+}
+.VPDocAsideOutline .outline-link {
+  font-size: 0.9rem;
+}
+
+/* Prose. Sections are numbered the way a report numbers them. */
+.vp-doc {
+  counter-reset: sec;
+}
+.vp-doc p,
+.vp-doc li {
+  line-height: 1.68;
+}
+.vp-doc h1 {
+  font-size: clamp(2rem, 4.6vw, 2.7rem);
+  line-height: 1.12;
+  font-weight: 560;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+.vp-doc h2 {
+  counter-increment: sec;
+  counter-reset: subsec;
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--ec-rule);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.vp-doc h2::before {
+  content: counter(sec);
+  margin-right: 0.7em;
+  color: var(--ec-accent);
+  font-variant-numeric: lining-nums;
+}
+.vp-doc h3 {
+  counter-increment: subsec;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.vp-doc h3::before {
+  content: counter(sec) '.' counter(subsec);
+  margin-right: 0.7em;
+  color: var(--ec-ink-3);
+  font-weight: 400;
+  font-variant-numeric: lining-nums;
+}
+.vp-doc a {
+  font-weight: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.vp-doc .lead {
+  font-size: 1.22rem;
+  line-height: 1.55;
+  color: var(--ec-ink-2);
+  margin-top: 1rem;
+}
+.vp-doc :not(pre) > code {
+  padding: 0.1em 0.32em;
+  border-radius: 2px;
+  font-variant-numeric: lining-nums;
+}
+.vp-doc div[class*='language-'] {
+  border-radius: 0;
+  border-left: 2px solid var(--ec-ink);
+}
+.vp-doc div[class*='language-'] code {
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+@media (max-width: 639px) {
+  .vp-doc div[class*='language-'] {
+    margin: 16px 0;
+  }
+}
+.vp-doc .custom-block {
+  border-radius: 0;
+  border: 0;
+  border-left: 2px solid var(--ec-accent);
+  font-size: 1rem;
+}
+.vp-doc .custom-block.tip,
+.vp-doc .custom-block.info {
+  border-left-color: var(--ec-ink);
+}
+.vp-doc .custom-block-title {
+  font-weight: 600;
+}
+
+/* Booktabs tables: rules above and below, none between columns. */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1.5px solid var(--ec-rule-strong);
+  border-bottom: 1.5px solid var(--ec-rule-strong);
+  font-size: 0.98rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.vp-doc th,
+.vp-doc td {
+  border: 0;
+  padding: 0.55rem 0.9rem 0.55rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+.vp-doc th {
+  background: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--ec-rule-strong);
+}
+.vp-doc tr,
+.vp-doc tr:nth-child(2n) {
+  background: none;
+  border: 0;
+}
+.vp-doc td {
+  border-top: 1px solid var(--ec-rule);
+}
+.vp-doc tbody tr:first-child td {
+  border-top: 0;
+}
+.table-scroll {
+  overflow-x: auto;
+}
+
+/* Figures, shared by the landing page and the guides. */
+.fig {
+  margin: 2.2rem 0;
+}
+.fig > figcaption,
+.fig-caption {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ec-ink-2);
+  max-width: 62ch;
+}
+.fig > figcaption b,
+.fig-caption b {
+  font-weight: 600;
+  color: var(--ec-ink);
+  font-variant-numeric: lining-nums;
+}
+
+.VPFooter {
+  background: var(--ec-paper) !important;
+  border-top: 1px solid var(--ec-rule) !important;
+}
+.VPFooter .message,
+.VPFooter .copyright {
+  font-size: 0.92rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

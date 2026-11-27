@@ -21,6 +21,15 @@ Checking real predictions needs a trained model (see below): `python solve_ctc.p
 - On Linux x64, `npm ci` in `node/` also downloads the CUDA build of onnxruntime from NuGet, which is large. Set `ONNXRUNTIME_NODE_INSTALL=skip` when CPU inference is enough.
 - `node/` is an unpublished CommonJS helper with its own lockfile. Dependabot bumps it, `requirements.txt` and the workflows weekly.
 
+## Docs site
+
+The project website is a VitePress site in `docs/`, with its own `package.json` and lockfile. It deploys to https://halitsever.github.io/e-captcha-solver/ through `.github/workflows/docs.yml` on pushes to `main` that touch `docs/**`.
+
+- Build it from `docs/`: `npm ci`, then `npm run build`. `npm run dev` serves it locally.
+- The theme is in `docs/.vitepress/theme/`. The home page is `Landing.vue`, and the figures are `SampleFigure.vue`, `ArchFigure.vue` and `CtcDecode.vue`.
+- Layer sizes, the alphabet and the sample labels are written out in the pages and figures. Update them when `model_ctc.py` or `samples/` change.
+- State only figures the repo states. Show a prediction for a sample only after running a model on it.
+
 ## Conventions
 
 - Commit subjects in conventional-commit style, in English, subject line only: no body, no trailer.
