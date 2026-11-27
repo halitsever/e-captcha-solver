@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-const site = 'https://halitsever.github.io/e-captcha-solver/'
+const site = 'https://projects.halit.org/e-captcha-solver/'
 const name = 'E-captcha solver'
 const homeTitle = 'Captcha solver in Python: open-source CRNN-CTC OCR'
 const description =
@@ -37,7 +37,7 @@ export default defineConfig({
   sitemap: { hostname: site },
 
   head: [
-    /** Cloudflare Web Analytics, one token for every page on halitsever.github.io. */
+    /** Cloudflare Web Analytics, one token for every page on projects.halit.org. */
     ['script', { defer: '', src: 'https://static.cloudflareinsights.com/beacon.min.js', 'data-cf-beacon': '{"token": "dd7e54d3f48841c187d72d9dbb92a6b6"}' }],
     ['link', { rel: 'icon', href: '/e-captcha-solver/favicon.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'icon', href: '/e-captcha-solver/favicon.png', type: 'image/png', sizes: '32x32' }],
