@@ -3,7 +3,7 @@ title: CTC loss and CTC decoding explained
 description: CTC loss explained with real PyTorch code. How nn.CTCLoss trains a model without alignments, and how greedy CTC decoding collapses repeats and drops blanks.
 ---
 
-# CTC loss and CTC decoding explained
+# How CTC loss and CTC decoding turn 50 predictions into five letters
 
 <p class="lead">The model outputs 50 predictions for every image, and the answer has five letters. Connectionist Temporal Classification, CTC for short, is the rule that connects the two. It is used twice: as the loss in training and as the decoder at inference.</p>
 

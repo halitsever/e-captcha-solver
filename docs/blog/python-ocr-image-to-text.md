@@ -2,13 +2,13 @@
 title: "Python OCR: Image to Text With and Without Tesseract"
 titleTemplate: false
 description: "Turn an image into text in Python: pytesseract for clean printed text, with install steps and options, and a trained CRNN for noisy text like captchas."
-headline: "Python OCR: image to text with and without Tesseract"
+headline: "Python OCR in two routes: pytesseract or a trained model"
 date: "2026-11-28"
 keyword: "python ocr image to text"
 faq: [{"q": "Does pip install pytesseract install Tesseract?", "a": "No. pytesseract calls the Tesseract program, which you install separately with your system's package manager or the Windows installer."}, {"q": "How do I OCR a single line or word?", "a": "Pass --psm 7 for one line or --psm 8 for one word in the config argument. The default mode expects a full page."}]
 ---
 
-# Python OCR: image to text with and without Tesseract
+# Python OCR in two routes: pytesseract or a trained model
 
 <p class="post-meta">By <a href="https://halit.org">Halit Sever</a> · <time datetime="2026-11-28">28 November 2026</time></p>
 

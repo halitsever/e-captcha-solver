@@ -3,7 +3,7 @@ title: Train a captcha recognition model
 description: Train the CRNN-CTC captcha recognition model on your own labelled images, with synthetic data from gen_synthetic.py, pseudo-labelling and a Colab notebook.
 ---
 
-# Train a captcha recognition model
+# How to train the captcha recognition model on your own data
 
 <p class="lead">The repository ships the training code and no weights. This page covers the data format, the training command, the synthetic image generator, pseudo-labelling and the Colab notebook.</p>
 

@@ -3,7 +3,7 @@ title: ONNX export and Node.js inference
 description: Export the PyTorch captcha OCR model to ONNX and run it in Node.js with onnxruntime-node and sharp. No Python is needed at runtime after the export.
 ---
 
-# ONNX export and Node.js inference
+# Run the captcha model in Node.js with ONNX Runtime
 
 <p class="lead">The <code>node/</code> folder runs the same model through ONNX Runtime. Python is needed once, to export the checkpoint. After that an image captcha solver runs in a plain Node.js process.</p>
 
