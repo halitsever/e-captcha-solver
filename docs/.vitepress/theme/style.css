@@ -301,3 +301,23 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Blog posts */
+.vp-doc .post-meta {
+  margin-top: 4px;
+  font-family: var(--ec-mono);
+  font-size: 13px;
+  color: var(--ec-ink-3);
+}
+
+.vp-doc .samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.vp-doc .samples img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--ec-rule);
+}
