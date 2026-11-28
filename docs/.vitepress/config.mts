@@ -24,6 +24,45 @@ const jsonLd = {
   author,
 }
 
+/** BlogPosting, breadcrumbs and, when the post shows an FAQ, FAQPage data for a blog post. */
+function postJsonLd(fm: Record<string, any>, url: string, desc: string) {
+  const graph: object[] = [
+    {
+      '@type': 'BlogPosting',
+      headline: fm.headline ?? fm.title,
+      description: desc,
+      url,
+      mainEntityOfPage: url,
+      datePublished: fm.date,
+      dateModified: fm.date,
+      inLanguage: fm.lang ?? 'en',
+      image: `${site}og.png`,
+      keywords: fm.keyword,
+      author: { ...author, url: 'https://halit.org' },
+      publisher: { ...author, url: 'https://halit.org' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name, item: site },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site}blog/` },
+        { '@type': 'ListItem', position: 3, name: fm.headline ?? fm.title, item: url },
+      ],
+    },
+  ]
+  if (fm.faq?.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: fm.faq.map((f: { q: string; a: string }) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>|`/g, '') },
+      })),
+    })
+  }
+  return { '@context': 'https://schema.org', '@graph': graph }
+}
+
 export default defineConfig({
   /** keeps the page hash map out of every page's HTML, which Semrush reads as a low text-to-HTML ratio */
   metaChunk: true,
@@ -42,7 +81,6 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/e-captcha-solver/favicon.svg', type: 'image/svg+xml' }],
     ['link', { rel: 'icon', href: '/e-captcha-solver/favicon.png', type: 'image/png', sizes: '32x32' }],
     ['meta', { name: 'theme-color', content: '#a01020' }],
-    ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: name }],
     ['meta', { property: 'og:image', content: `${site}og.png` }],
     ['meta', { property: 'og:image:width', content: '1280' }],
@@ -53,12 +91,19 @@ export default defineConfig({
   ],
 
   transformPageData(pageData) {
+    const fm = pageData.frontmatter
     const isHome = pageData.relativePath === 'index.md'
-    const title = isHome ? homeTitle : `${pageData.frontmatter.title ?? pageData.title} | ${name}`
+    const ownTitle = isHome || fm.titleTemplate === false
+    const title = isHome ? homeTitle : ownTitle ? fm.title : `${fm.title ?? pageData.title} | ${name}`
     const url = site + pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
-    const desc = pageData.frontmatter.description ?? description
-    pageData.frontmatter.head ??= []
-    pageData.frontmatter.head.push(
+    const desc = fm.description ?? description
+    fm.head ??= []
+    fm.head.push(['meta', { property: 'og:type', content: fm.date ? 'article' : 'website' }])
+    if (fm.date) fm.head.push(['script', { type: 'application/ld+json' }, JSON.stringify(postJsonLd(fm, url, desc))])
+    for (const [lang, path] of Object.entries(fm.hreflang ?? {})) {
+      fm.head.push(['link', { rel: 'alternate', hreflang: lang, href: site + path }])
+    }
+    fm.head.push(
       ['link', { rel: 'canonical', href: url }],
       ['meta', { property: 'og:url', content: url }],
       ['meta', { property: 'og:title', content: title }],
@@ -66,6 +111,12 @@ export default defineConfig({
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: desc }],
     )
+  },
+
+  /** Posts in another language set `lang` in frontmatter; VitePress only knows the site language. */
+  transformHtml(code, _id, { pageData }) {
+    const lang = pageData.frontmatter.lang
+    return lang ? code.replace('<html lang="en"', `<html lang="${lang}"`) : code
   },
 
   markdown: {
@@ -80,28 +131,47 @@ export default defineConfig({
       { text: 'The model', link: '/guide/crnn' },
       { text: 'CTC', link: '/guide/ctc-loss' },
       { text: 'Training', link: '/guide/training' },
+      { text: 'Blog', link: '/blog/' },
     ],
-    sidebar: [
-      {
-        text: 'Use it',
-        items: [
-          { text: 'Quick start', link: '/guide/quick-start' },
-          { text: 'FastAPI server', link: '/guide/api-server' },
-          { text: 'ONNX and Node.js', link: '/guide/onnx-node' },
-        ],
-      },
-      {
-        text: 'How it works',
-        items: [
-          { text: 'CRNN explained', link: '/guide/crnn' },
-          { text: 'CTC loss and decoding', link: '/guide/ctc-loss' },
-        ],
-      },
-      {
-        text: 'Train it',
-        items: [{ text: 'Training', link: '/guide/training' }],
-      },
-    ],
+    sidebar: {
+      '/blog/': [
+        {
+          text: 'Blog',
+          items: [
+            { text: 'All posts', link: '/blog/' },
+            { text: 'What is a CAPTCHA?', link: '/blog/what-is-a-captcha-challenge' },
+            { text: 'Math CAPTCHAs', link: '/blog/mathematical-captcha' },
+            { text: 'What is a captcha code?', link: '/blog/what-is-a-captcha-code' },
+            { text: 'Google unusual traffic', link: '/blog/google-captcha-unusual-traffic' },
+            { text: 'How captcha OCR works', link: '/blog/how-captcha-ocr-works' },
+            { text: 'Python OCR', link: '/blog/python-ocr-image-to-text' },
+            { text: 'Tesseract vs CRNN', link: '/blog/tesseract-vs-crnn-captcha' },
+            { text: 'Captcha ne demek?', link: '/blog/captcha-ne-demek' },
+          ],
+        },
+      ],
+      '/': [
+        {
+          text: 'Use it',
+          items: [
+            { text: 'Quick start', link: '/guide/quick-start' },
+            { text: 'FastAPI server', link: '/guide/api-server' },
+            { text: 'ONNX and Node.js', link: '/guide/onnx-node' },
+          ],
+        },
+        {
+          text: 'How it works',
+          items: [
+            { text: 'CRNN explained', link: '/guide/crnn' },
+            { text: 'CTC loss and decoding', link: '/guide/ctc-loss' },
+          ],
+        },
+        {
+          text: 'Train it',
+          items: [{ text: 'Training', link: '/guide/training' }],
+        },
+      ],
+    },
     outline: { level: 2, label: 'Sections' },
     socialLinks: [{ icon: 'github', link: repo }],
     search: { provider: 'local' },
