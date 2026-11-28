@@ -7,7 +7,7 @@ Install with `pip install -r requirements.txt`. The repository ships no trained 
 ## Docs
 
 - [Project website](https://projects.halit.org/e-captcha-solver/): quick start and guides on the CRNN, CTC loss and decoding, training, ONNX export and the FastAPI server
-- [Blog](https://projects.halit.org/e-captcha-solver/blog/): what a captcha challenge-response test is, math captchas, captcha codes, Google's unusual traffic page, how captcha OCR works, Python OCR and Tesseract vs a trained CRNN
+- [Blog](https://projects.halit.org/e-captcha-solver/blog/): what a captcha challenge-response test is, math captchas, captcha codes, Google's unusual traffic page, how captcha OCR works, Python OCR, Tesseract vs a trained CRNN, what reCAPTCHA and recaptcha.net are, why reCAPTCHA verification fails, fake captcha scams, audio captchas and OCR with OpenCV
 - [README](https://github.com/halitsever/e-captcha-solver/blob/main/Readme.md): model overview, install, CLI, Python, HTTP and Node usage, training
 - [infer.py](https://github.com/halitsever/e-captcha-solver/blob/main/infer.py): `CaptchaSolver` Python API
 - [model_ctc.py](https://github.com/halitsever/e-captcha-solver/blob/main/model_ctc.py): CRNN architecture, alphabet and preprocessing

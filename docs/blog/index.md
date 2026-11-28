@@ -1,7 +1,7 @@
 ---
-title: "Captcha and OCR Blog: How Captchas Work"
+title: "Captcha and OCR Blog: reCAPTCHA, Scams, OCR"
 titleTemplate: false
-description: "How captcha challenge-response tests, math captchas and captcha codes work, why Google shows unusual traffic pages, and how OCR reads text in Python."
+description: "How captchas and reCAPTCHA work, fake captcha scams, audio captchas, why verification fails, what recaptcha.net is, and how OCR reads text in Python."
 ---
 
 # Captchas and OCR, explained
@@ -39,3 +39,27 @@ Why Tesseract OCR in Python misreads captcha text, what preprocessing can and ca
 ## [Captcha ne demek? Captcha kodu nedir?](/blog/captcha-ne-demek)
 
 Captcha ne demek, captcha kodu ve captcha doğrulaması nedir? Sitelerin neden bu testi istediği, captcha türleri ve kod yanlış çıktığında ne yapılacağı.
+
+## [What reCAPTCHA is and how it decides](/blog/what-is-recaptcha)
+
+reCAPTCHA is Google's service that tells people from bots on websites. How the v2 checkbox, invisible v2 and score-based v3 work, and what the site sees.
+
+## [recaptcha.net: why that domain shows up](/blog/what-is-recaptcha-net)
+
+recaptcha.net is the domain Google offers for reCAPTCHA where google.com is blocked. Why it shows up in Screen Time, logs and blockers, and if it is safe.
+
+## [Why a captcha says verification failed](/blog/recaptcha-verification-failed)
+
+reCAPTCHA verification failed or captcha not working? The usual causes for visitors and for site owners, from expired tokens to blocked scripts, with fixes.
+
+## [Fake captchas that ask you to run a command](/blog/fake-captcha-scam)
+
+A fake captcha scam tells you to press Windows+R or open Terminal and paste a command. How the ClickFix trick works and what to do if you ran it.
+
+## [Audio captchas and accessibility](/blog/audio-captcha)
+
+An audio captcha reads out letters or words to type instead of an image puzzle. How it works, why the W3C calls it a poor fit for many users, and options.
+
+## [Text recognition with OpenCV's dnn module](/blog/opencv-ocr-python)
+
+OpenCV does OCR in its dnn module: a text detector plus a CRNN recognizer with CTC decoding. How the API works in Python and how it compares with this repo.

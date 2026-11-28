@@ -67,6 +67,6 @@ Not necessarily. Shared VPNs and networks are more common causes. If it keeps ha
 ## Related posts
 
 - [What is a CAPTCHA challenge-response test?](/blog/what-is-a-captcha-challenge)
-- [Math CAPTCHAs: how they work and where they fall short](/blog/mathematical-captcha)
-- [What is a captcha code?](/blog/what-is-a-captcha-code)
+- [What reCAPTCHA is and how it decides](/blog/what-is-recaptcha)
+- [Why a captcha says verification failed](/blog/recaptcha-verification-failed)
 - [All posts](/blog/)
