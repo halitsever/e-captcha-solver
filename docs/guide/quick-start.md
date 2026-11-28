@@ -3,7 +3,7 @@ title: 'Solve a captcha in Python: quick start'
 description: How to solve a captcha using Python with this CRNN-CTC model. Install the requirements, add trained weights, then read one image or a whole folder.
 ---
 
-# Solve a captcha in Python: quick start
+# Quick start: your first captcha prediction in Python
 
 <p class="lead">This page takes you from a fresh clone to a prediction. The model reads E-captcha text images: five letters from a 19-letter alphabet on a 200 x 50 grayscale image.</p>
 

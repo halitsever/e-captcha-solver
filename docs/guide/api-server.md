@@ -3,7 +3,7 @@ title: Captcha solver API with FastAPI
 description: Run the captcha OCR model as a small HTTP API. One FastAPI endpoint, POST /solve, takes an image upload and returns the text with a confidence score.
 ---
 
-# Captcha solver API with FastAPI
+# Serve the captcha solver as a FastAPI endpoint
 
 <p class="lead"><code>server.py</code> is a 20-line FastAPI app with one endpoint. It is the option to pick when the caller is not written in Python, or when several services should share one loaded model.</p>
 

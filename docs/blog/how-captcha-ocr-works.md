@@ -2,13 +2,13 @@
 title: "How Captcha OCR Works, Step by Step"
 titleTemplate: false
 description: "How OCR solves a text captcha, step by step: preprocessing, a CNN, a bidirectional LSTM, CTC decoding and a confidence score, shown with a real CRNN-CTC model."
-headline: "How captcha OCR works, step by step"
+headline: "What captcha OCR does to an image, from pixels to letters"
 date: "2026-11-28"
 keyword: "how to solve a captcha"
 faq: [{"q": "Can this model read any captcha?", "a": "No. It reads E-captcha images: five letters from a fixed 19-letter alphabet. Other captchas need their own training data and run."}, {"q": "Why not use Tesseract?", "a": "Tesseract is built for clean printed text. Noisy, overlapping captcha letters are a different problem; the Tesseract vs CRNN post explains why."}]
 ---
 
-# How captcha OCR works, step by step
+# What captcha OCR does to an image, from pixels to letters
 
 <p class="post-meta">By <a href="https://halit.org">Halit Sever</a> · <time datetime="2026-11-28">28 November 2026</time></p>
 

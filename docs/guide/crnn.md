@@ -3,7 +3,7 @@ title: CRNN explained with a real captcha model
 description: CRNN explained with working PyTorch code. Five convolutional blocks, a two-layer bidirectional LSTM and a CTC head, with the output shape of every layer.
 ---
 
-# CRNN explained with a real captcha model
+# Inside a CRNN: the captcha model, layer by layer
 
 <p class="lead">A CRNN is a convolutional recurrent neural network. Convolutions read the image, recurrent layers read the result as a sequence, and CTC turns the sequence into text. This page walks through the one in <code>model_ctc.py</code>.</p>
 
