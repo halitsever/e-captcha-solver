@@ -71,7 +71,7 @@ It can be written that way, but then a script can submit the form without it. Th
 
 ## Related posts
 
-- [Math CAPTCHAs: how they work and where they fall short](/blog/mathematical-captcha)
-- [Why Google shows an "unusual traffic" captcha](/blog/google-captcha-unusual-traffic)
-- [What is a captcha code?](/blog/what-is-a-captcha-code)
+- [What reCAPTCHA is and how it decides](/blog/what-is-recaptcha)
+- [Fake captchas that ask you to run a command](/blog/fake-captcha-scam)
+- [Audio captchas and accessibility](/blog/audio-captcha)
 - [All posts](/blog/)

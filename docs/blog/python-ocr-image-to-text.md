@@ -98,7 +98,7 @@ Pass --psm 7 for one line or --psm 8 for one word in the config argument. The de
 
 ## Related posts
 
-- [What is a captcha code?](/blog/what-is-a-captcha-code)
 - [How captcha OCR works, step by step](/blog/how-captcha-ocr-works)
 - [Tesseract vs a trained CRNN for captcha text](/blog/tesseract-vs-crnn-captcha)
+- [Text recognition with OpenCV's dnn module](/blog/opencv-ocr-python)
 - [All posts](/blog/)
